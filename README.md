@@ -7,12 +7,18 @@ In order to match, you must have [deno](https://deno.com/manual/getting_started/
 In this tutorial we'll be matching from `1.20` to `1.21` as examples. Note that if you're not a team member and don't have push access to the mappings repo, you'll need to fork it and clone your fork instead.
 
 ## setup
+#### NOTE! MAINTAINERS ONLY!
+1. run `git config --global user.name <GithubUsername>` and `git config --global user.email <GithubEmail>`
+2. Run the `update.sh` script, and follow the prompts. After it has completed, the commits should already be on GitHub.
+#### Windows
+If you are on windows, run `./update.sh` from Git Bash, or another POSIX shell. (zsh, bash, NOT powershell for windows)
+A `update.bat` file will be coming soon!
+
+## manual matching
 
 Run `deno task setup [your old version] [your new version]`. For us, this means we'll run `deno task setup 1.20 1.21`.
 
 You can also set up manually, see [manual setup](#manual-setup).
-
-## matching
 
 1. In both the old and new clones, run `./gradlew mapPerVersionMappingsJar`.
 2. In the new clone, run `./gradlew dropInvalidMappings`.
