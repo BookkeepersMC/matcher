@@ -1,0 +1,6 @@
+{
+    "tasks": {
+        "setup": "deno run --allow-read --allow-write --allow-net --allow-run setup.ts",
+        "match": "deno run --allow-read --allow-write --allow-net --allow-env save_methods.ts"
+    }
+}
