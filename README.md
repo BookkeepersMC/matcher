@@ -11,8 +11,7 @@ In this tutorial we'll be matching from `1.20` to `1.21` as examples. Note that 
 1. run `git config --global user.name <GithubUsername>` and `git config --global user.email <GithubEmail>`
 2. Run the `update.sh` script, and follow the prompts. After it has completed, the commits should already be on GitHub.
 #### Windows
-If you are on windows, run `./update.sh` from Git Bash, or another POSIX shell. (zsh, bash, NOT powershell for windows)
-A `update.bat` file will be coming soon!
+Make sure bash is installed (should come with git), by typing `bash` into a command prompt. If it says `<3>WSL Error`, run `wsl --setdefault YOUR_WSL_DISTRIBUTON` where DISTRIBUTION is your WSL distro (ubuntu, debian, fedora, etc.). Next, run `bash ./update.sh` and there you go! Follow the prompts, and you are done!
 
 ## manual matching
 
