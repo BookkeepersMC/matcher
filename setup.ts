@@ -1,5 +1,6 @@
 import { exec } from "https://deno.land/x/execute@v1.1.0/mod.ts";
 import { existsSync } from "https://deno.land/std/fs/mod.ts";
+import * as os from "./os.ts";
 
 const from_version = Deno.args[0];
 if (from_version === undefined) {
@@ -26,7 +27,13 @@ console.log('Cloning old book version...')
 await exec('git clone https://github.com/bookkeepersmc/book.git --depth 1 --branch ' + from_version + ' --single-branch book/' + from_version);
 
 console.log('Copying to new version...')
-await exec('cp -r book/' + from_version + ' book/' + to_version);
+
+if (os.getOs() === "windows") {
+    await exec('copy -r book/' + from_version + ' book/' + to_version);
+} else {
+    await exec('cp -r book/' + from_version + ' book/' + to_version);
+}
+
 
 // update version
 console.log('Updating version in new clone...')

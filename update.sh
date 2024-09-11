@@ -6,24 +6,19 @@ read -r old
 echo "Please enter the new MC version:"
 read -r new
 
-alias mappingsDir='cd book/$new'
-alias oldMappingsDir='cd book/$old'
-alias rootDirFromMappingsDir='cd ../../'
-alias drop='./gradlew dropInvalidMappings'
-alias mapJar='./gradlew mapPerVersionMappingsJar'
-
 deno task setup "$old" "$new"
-oldMappingsDir
-mapJar
-rootDirFromMappingsDir
-mappingsDir
-mapJar
-drop
+cd book/$old
+./gradlew mapPerVersionMappingsJar
+cd ../../
+cd book/$new
+./gradlew mapPerVersionMappingsJar
+./gradlew dropInvalidMappings
 git add . && git commit -m "$new"
-rootDirFromMappingsDir
+cd ../../
 deno task match "$old" "$new"
-mappingsDir
-drop
+cd book/$new
+./gradlew dropInvalidMappings
 ./gradlew generatePackageInfoMappings build javadocJar
 git add . && git commit -m "match $old to $new"
 git push
+rm -rf book/
