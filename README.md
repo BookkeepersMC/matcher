@@ -7,11 +7,10 @@ In order to match, you must have [deno](https://deno.com/manual/getting_started/
 In this tutorial we'll be matching from `1.20` to `1.21` as examples. Note that if you're not a team member and don't have push access to the mappings repo, you'll need to fork it and clone your fork instead.
 
 ## setup
-#### NOTE! MAINTAINERS ONLY!
-1. run `git config --global user.name <GithubUsername>` and `git config --global user.email <GithubEmail>`
+1. run `git config --global user.name <GithubUsername>` and `git config --global user.email <GithubEmail>` **ONLY DO THE FIRST TIME YOU RUN THIS SCRIPT!**
 2. Run the `update.sh` script, and follow the prompts. After it has completed, the commits should already be on GitHub.
 #### Windows
-Make sure bash is installed (should come with git), by typing `bash` into a command prompt. If it says `<3>WSL Error`, run `wsl --setdefault YOUR_WSL_DISTRIBUTON` where DISTRIBUTION is your WSL distro (ubuntu, debian, fedora, etc.). Next, run `bash ./update.sh` and there you go! Follow the prompts, and you are done!
+Make sure bash is installed (should come with git), by typing `bash` into a command prompt. Next, run `bash ./update.sh` or `./update.sh` from git bash and there you go! Follow the prompts, and you are done!
 
 ## manual matching
 
