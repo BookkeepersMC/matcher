@@ -18,7 +18,7 @@ cd ../../
 deno task match "$old" "$new"
 cd book/$new
 ./gradlew dropInvalidMappings
-./gradlew generatePackageInfoMappings build javadocJar
+./gradlew generatePackageInfoMappings build javadocJar || exit 1
 git add . && git commit -m "match $old to $new"
 git push
 rm -rf book/
