@@ -8,9 +8,10 @@ In this tutorial we'll be matching from `1.20` to `1.21` as examples. Note that 
 
 ## setup
 1. **ONLY DO THE FIRST TIME YOU RUN THIS SCRIPT!** run `git config --global user.name <GithubUsername>` and `git config --global user.email <GithubEmail>` 
-2. Run the `update.sh` script, and follow the prompts. After it has completed, the commits should already be on GitHub.
+#### unix
+Run `./update.sh`, and follow the prompts. After it has completed, the commits should already be on GitHub.
 #### Windows
-Make sure bash is installed (should come with git), by typing `bash` into a command prompt. Next, run `bash ./update.sh` or `./update.sh` from git bash and there you go! Follow the prompts, and you are done!
+Run `./update` in powershell or `update` in cmd, and follow the prompts. After it has completed, the commits should already be on GitHub.
 
 ## manual matching
 

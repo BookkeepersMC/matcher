@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 echo "Please enter the current MC version:"
 read -r old
@@ -21,4 +21,5 @@ cd book/$new
 ./gradlew generatePackageInfoMappings build javadocJar || exit 1
 git add . && git commit -m "match $old to $new"
 git push
+cd ../../
 rm -rf book/

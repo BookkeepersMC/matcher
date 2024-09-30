@@ -1,24 +1,47 @@
 @echo off
+setlocal
 
-echo Please enter the current MC version:
-set /p "old="
+:: Prompt for the current MC version
+set /p old="Please enter the current MC version: "
 
-echo Please enter the new MC version:
-set /p "new="
+:: Prompt for the new MC version
+set /p new="Please enter the new MC version: "
 
+:: Run the setup task
 deno task setup "%old%" "%new%"
-cd book/%old%
-./gradlew mapPerVersionMappingsJar
-cd ../../
-cd book/%new%
-./gradlew mapPerVersionMappingsJar
-./gradlew dropInvalidMappings
-@rem git add . && git commit -m "$new"
-cd ../../
+
+:: Process the old version
+cd book\%old%
+call gradlew mapPerVersionMappingsJar
+
+:: Move back to the root directory
+cd ..\..
+
+:: Process the new version
+cd book\%new%
+call gradlew mapPerVersionMappingsJar
+call gradlew dropInvalidMappings
+@rem git add . 
+@rem git commit -m "%new%"
+
+:: Move back to the root directory
+cd ..\..
+
+:: Match versions
 deno task match "%old%" "%new%"
-cd book/%new%
-./gradlew dropInvalidMappings
-./gradlew generatePackageInfoMappings build javadocJar
-@rem git add . && git commit -m "match $old to $new"
+
+:: Process the new version again
+cd book\%new%
+call gradlew dropInvalidMappings
+call gradlew generatePackageInfoMappings build javadocJar || exit /b 1
+@rem git add . 
+@rem git commit -m "match %old% to %new%"
 @rem git push
-rm -rf book/
+
+:: Move back to the root directory
+cd ..\..
+
+:: Clean up
+rd /s /q book
+
+endlocal
