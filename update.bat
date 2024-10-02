@@ -21,8 +21,8 @@ cd ..\..
 cd book\%new%
 call gradlew mapPerVersionMappingsJar
 call gradlew dropInvalidMappings
-@rem git add . 
-@rem git commit -m "%new%"
+git add . 
+git commit -m "%new%"
 
 :: Move back to the root directory
 cd ..\..
@@ -34,9 +34,9 @@ deno task match "%old%" "%new%"
 cd book\%new%
 call gradlew dropInvalidMappings
 call gradlew generatePackageInfoMappings build javadocJar || exit /b 1
-@rem git add . 
-@rem git commit -m "match %old% to %new%"
-@rem git push
+git add . 
+git commit -m "match %old% to %new%"
+git push
 
 :: Move back to the root directory
 cd ..\..
