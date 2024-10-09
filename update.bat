@@ -36,7 +36,7 @@ call gradlew dropInvalidMappings
 call gradlew generatePackageInfoMappings build javadocJar || exit /b 1
 git add . 
 git commit -m "match %old% to %new%"
-git push
+git push --set-upstream origin "%new%"
 
 :: Move back to the root directory
 cd ..\..

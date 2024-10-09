@@ -20,6 +20,6 @@ cd book/$new
 ./gradlew dropInvalidMappings
 ./gradlew generatePackageInfoMappings build javadocJar || exit 1
 git add . && git commit -m "match $old to $new"
-git push
+git push --set-upstream origin "$new"
 cd ../../
 rm -rf book/
