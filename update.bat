@@ -37,6 +37,12 @@ call gradlew generatePackageInfoMappings build javadocJar || exit /b 1
 git add . 
 git commit -m "match %old% to %new%"
 git push --set-upstream origin "%new%"
+gh repo edit --default-branch "%new%"
+if errorlevel 1 (
+    echo No admin privileges, or GH CLI is not installed!
+    timeout /t 3 >nul
+    exit /b 1
+)
 
 :: Move back to the root directory
 cd ..\..

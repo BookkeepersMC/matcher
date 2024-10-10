@@ -21,5 +21,6 @@ cd book/$new
 ./gradlew generatePackageInfoMappings build javadocJar || exit 1
 git add . && git commit -m "match $old to $new"
 git push --set-upstream origin "$new"
+gh repo edit --default-branch "$new" || echo "No admin privileges, or GH CLI is not installed!"; sleep 3; exit 1;
 cd ../../
 rm -rf book/
