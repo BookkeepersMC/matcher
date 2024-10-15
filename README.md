@@ -1,4 +1,5 @@
 # matcher
+BASED OF qm-matcher by QuiltMC! **ALL** original work credit goes to them!
 
 ## prerequisites
 
