@@ -2,8 +2,8 @@
  * Utilities to deal with class files since java-class-tools is a bit barebone.
  */
 
-import JSZip from "npm:jszip";
-import { Modifier } from "npm:java-class-tools";
+import JSZip from "npm:jszip@3.10.1";
+import { Modifier } from "npm:java-class-tools@1.3.2";
 import * as enigma from "./enigma_mappings.mjs";
 import * as java from "./java.mjs"
 

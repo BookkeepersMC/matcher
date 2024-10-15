@@ -131,7 +131,7 @@ export class TinyClass extends TinyEntry {
         this.methods = [];
     }
 
-    get_type(): string {
+    override get_type(): string {
         return "c";
     }
 
@@ -193,7 +193,7 @@ export class TinyField extends TinyClassEntry {
         return tiny_file.resolve_type(this.type);
     }
 
-    get_type(): string {
+    override get_type(): string {
         return "f";
     }
 }
@@ -226,7 +226,7 @@ export class TinyMethod extends TinyClassEntry {
         return new FunctionDescriptor(this.descriptor.params.map((param: string) => tiny_file.resolve_type(param)), return_type);
     }
 
-    get_type() {
+    override get_type() {
         return "m";
     }
 }

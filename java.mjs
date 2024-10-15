@@ -2,7 +2,7 @@
  * Represents a util file about Java-related stuff.
  */
 
-import { JavaClassFileReader } from "npm:java-class-tools";
+import { JavaClassFileReader } from "npm:java-class-tools@1.3.2";
 
 export const SIGNATURE_REGEX = /^\((.*)\)(.+)$/;
 export const TYPE_REGEX = /^(?:V|\[*(?:Z|B|C|S|I|J|F|D|L(?:[a-z0-9/]+)\/[A-Za-z0-9_]+(?:\$[A-Za-z0-9_]+)?;))$/;
